@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,27 +8,27 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
-<body class="bg-[#0c101b] text-gray-100 min-h-screen font-sans antialiased">
+<body class="bg-slate-50 text-slate-800 min-h-screen font-sans antialiased">
 
   <!-- Header -->
-  <header class="border-b border-gray-800 bg-[#0f1524]/90 backdrop-blur-md sticky top-0 z-50 px-6 py-3.5">
+  <header class="border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 z-50 px-6 py-3.5 shadow-xs">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-violet-600 flex items-center justify-center shadow-md shadow-violet-900/30">
+        <div class="w-10 h-10 rounded-xl bg-violet-600 flex items-center justify-center shadow-md shadow-violet-600/20">
           <i data-lucide="network" class="w-5 h-5 text-white"></i>
         </div>
         <div>
           <div class="flex items-center space-x-2">
-            <h1 class="text-lg font-bold tracking-tight text-white">ContextMesh</h1>
-            <span class="px-2 py-0.5 text-[11px] font-semibold rounded bg-violet-500/15 text-violet-400 border border-violet-500/30">MCP Enabled</span>
+            <h1 class="text-lg font-bold tracking-tight text-slate-900">ContextMesh</h1>
+            <span class="px-2 py-0.5 text-[11px] font-semibold rounded bg-violet-50 text-violet-700 border border-violet-200">MCP Enabled</span>
           </div>
-          <p class="text-xs text-gray-400">Local-First Private Context Engine for AI Assistants</p>
+          <p class="text-xs text-slate-500">Local-First Private Context Engine for AI Assistants</p>
         </div>
       </div>
 
       <div class="flex items-center space-x-3 text-xs">
-        <span class="flex items-center space-x-1.5 text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="flex items-center space-x-1.5 text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>100% Local SQLite (Zero Cloud Leakage)</span>
         </span>
       </div>
@@ -39,23 +39,23 @@
   <main class="max-w-7xl mx-auto px-6 py-6 space-y-6">
 
     <!-- Search / Question Bar -->
-    <div class="p-6 rounded-2xl bg-[#12192c] border border-gray-800 shadow-xl space-y-4">
-      <div class="flex items-center space-x-2 text-violet-400 text-xs font-semibold uppercase tracking-wider">
+    <div class="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
+      <div class="flex items-center space-x-2 text-violet-700 text-xs font-semibold uppercase tracking-wider">
         <i data-lucide="sparkles" class="w-4 h-4"></i>
         <span>Query Your Private Developer Context</span>
       </div>
       <form id="search-form" class="flex gap-3">
         <div class="relative flex-1">
-          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3.5 text-gray-400"></i>
-          <input type="text" id="query-input" placeholder="e.g. 'What was the git branch for auth refactor?' or 'recent terminal commands'" class="w-full bg-gray-900 border border-gray-800 rounded-xl pl-10 pr-4 py-3 text-sm text-white focus:outline-none focus:border-violet-500">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400"></i>
+          <input type="text" id="query-input" placeholder="e.g. 'What was the git branch for auth refactor?' or 'recent terminal commands'" class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500">
         </div>
-        <select id="source-filter" class="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-xs text-gray-300 focus:outline-none">
+        <select id="source-filter" class="bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-700 focus:outline-none focus:border-violet-500">
           <option value="">All Sources</option>
           <option value="git">Git Repos</option>
           <option value="terminal">Terminal</option>
           <option value="notes">Markdown Notes</option>
         </select>
-        <button type="submit" class="px-5 py-3 bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold rounded-xl shadow-md transition flex items-center space-x-1.5">
+        <button type="submit" class="px-5 py-3 bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center space-x-1.5">
           <span>Search Context</span>
         </button>
       </form>
@@ -65,45 +65,45 @@
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
       
       <!-- Total Events -->
-      <div class="p-4 rounded-xl bg-[#121829] border border-gray-800 flex items-center justify-between">
+      <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
         <div>
-          <span class="text-xs text-gray-400 uppercase font-semibold">Indexed Events</span>
-          <div id="stat-total" class="text-2xl font-bold text-white mt-1">--</div>
+          <span class="text-xs text-slate-500 uppercase font-semibold">Indexed Events</span>
+          <div id="stat-total" class="text-2xl font-bold text-slate-900 mt-1">--</div>
         </div>
-        <div class="p-2.5 rounded-lg bg-violet-500/10 text-violet-400">
+        <div class="p-2.5 rounded-lg bg-violet-50 text-violet-600">
           <i data-lucide="database" class="w-5 h-5"></i>
         </div>
       </div>
 
       <!-- Git Repos -->
-      <div class="p-4 rounded-xl bg-[#121829] border border-gray-800 flex items-center justify-between">
+      <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
         <div>
-          <span class="text-xs text-gray-400 uppercase font-semibold">Git Context</span>
-          <div id="stat-git" class="text-2xl font-bold text-cyan-400 mt-1">--</div>
+          <span class="text-xs text-slate-500 uppercase font-semibold">Git Context</span>
+          <div id="stat-git" class="text-2xl font-bold text-sky-600 mt-1">--</div>
         </div>
-        <div class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400">
+        <div class="p-2.5 rounded-lg bg-sky-50 text-sky-600">
           <i data-lucide="git-branch" class="w-5 h-5"></i>
         </div>
       </div>
 
       <!-- Terminal -->
-      <div class="p-4 rounded-xl bg-[#121829] border border-gray-800 flex items-center justify-between">
+      <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
         <div>
-          <span class="text-xs text-gray-400 uppercase font-semibold">Terminal Commands</span>
-          <div id="stat-term" class="text-2xl font-bold text-amber-400 mt-1">--</div>
+          <span class="text-xs text-slate-500 uppercase font-semibold">Terminal Commands</span>
+          <div id="stat-term" class="text-2xl font-bold text-amber-600 mt-1">--</div>
         </div>
-        <div class="p-2.5 rounded-lg bg-amber-500/10 text-amber-400">
+        <div class="p-2.5 rounded-lg bg-amber-50 text-amber-600">
           <i data-lucide="terminal" class="w-5 h-5"></i>
         </div>
       </div>
 
       <!-- Redactions -->
-      <div class="p-4 rounded-xl bg-[#121829] border border-gray-800 flex items-center justify-between">
+      <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
         <div>
-          <span class="text-xs text-gray-400 uppercase font-semibold">Secrets Redacted</span>
-          <div id="stat-redacted" class="text-2xl font-bold text-rose-400 mt-1">--</div>
+          <span class="text-xs text-slate-500 uppercase font-semibold">Secrets Redacted</span>
+          <div id="stat-redacted" class="text-2xl font-bold text-rose-600 mt-1">--</div>
         </div>
-        <div class="p-2.5 rounded-lg bg-rose-500/10 text-rose-400">
+        <div class="p-2.5 rounded-lg bg-rose-50 text-rose-600">
           <i data-lucide="shield-alert" class="w-5 h-5"></i>
         </div>
       </div>
@@ -111,26 +111,26 @@
     </div>
 
     <!-- Quick Collectors -->
-    <div class="p-4 rounded-xl bg-[#121829] border border-gray-800 flex items-center justify-between text-xs">
+    <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between text-xs">
       <div class="flex items-center space-x-2">
-        <i data-lucide="hard-drive-download" class="w-4 h-4 text-violet-400"></i>
-        <span class="font-medium text-white">Index Active Project Activity:</span>
+        <i data-lucide="hard-drive-download" class="w-4 h-4 text-violet-600"></i>
+        <span class="font-medium text-slate-800">Index Active Project Activity:</span>
       </div>
       <div class="flex items-center space-x-2">
-        <button id="btn-sync-git" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 transition">
+        <button id="btn-sync-git" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 font-medium transition">
           Sync Current Git Repo
         </button>
-        <button id="btn-sync-notes" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 transition">
+        <button id="btn-sync-notes" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 font-medium transition">
           Index Markdown Docs
         </button>
       </div>
     </div>
 
     <!-- Timeline of Events / Search Results -->
-    <div class="p-5 rounded-2xl bg-[#121829] border border-gray-800 space-y-4">
+    <div class="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
       <div class="flex items-center justify-between">
-        <h2 id="timeline-title" class="text-sm font-semibold text-white">Chronological Context Timeline</h2>
-        <span id="events-count" class="text-xs text-gray-400">-- events</span>
+        <h2 id="timeline-title" class="text-sm font-semibold text-slate-900">Chronological Context Timeline</h2>
+        <span id="events-count" class="text-xs text-slate-500 font-medium">-- events</span>
       </div>
 
       <div id="events-feed" class="space-y-3">
@@ -140,7 +140,7 @@
 
   </main>
 
-  <footer class="border-t border-gray-900 mt-12 py-6 text-center text-xs text-gray-500">
+  <footer class="border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500 bg-white">
     ContextMesh • Local-First Personal Context Daemon & Model Context Protocol (MCP) Server
   </footer>
 
