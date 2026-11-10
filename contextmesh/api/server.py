@@ -17,7 +17,7 @@ from contextmesh.core.models import ContextEvent, SearchQuery, EventSource
 
 app = FastAPI(
     title="ContextMesh API",
-    description="Local-First Personal Context API for AI Assistants",
+    description="Local-First Developer Context API & Knowledge Indexer",
     version="1.0.0"
 )
 

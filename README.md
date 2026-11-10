@@ -1,11 +1,11 @@
 # ContextMesh
 
-> **Local-first personal context API and Model Context Protocol (MCP) server for AI assistants.**  
+> **Local-first developer context API and Model Context Protocol (MCP) server.**  
 > Indexes your local Git diffs, terminal history, and markdown notes in a private SQLite database with automated secret redaction.
 
-Modern AI coding assistants (like Claude Desktop, Cursor, and Copilot) suffer from fragmented context: they don't know what bug you were wrestling with in your terminal two hours ago, what branch you switched from, or what architecture decision you wrote down in a scratch markdown note.
+Modern software development often suffers from fragmented context: past terminal commands, switched Git branches, and design notes scattered across markdown scratchpads.
 
-ContextMesh runs as a lightweight, 100% local daemon. It continuously indexes your developer activity into a local SQLite database (using FTS5 full-text indexing), intercepts and redacts sensitive credentials (API keys, passwords, bearer tokens), and exposes an MCP server interface so your AI can query:
+ContextMesh runs as a lightweight, 100% local daemon. It continuously indexes your developer activity into an embedded SQLite database (using FTS5 full-text indexing), intercepts and redacts sensitive credentials (API keys, passwords, bearer tokens), and exposes an MCP server interface so client tooling can query:
 > *"What command did I run earlier that fixed the Postgres port conflict?"*  
 > *"Which file had the OAuth token revocation logic?"*
 
@@ -14,8 +14,8 @@ ContextMesh runs as a lightweight, 100% local daemon. It continuously indexes yo
 ## Key Features
 
 1. **100% Local-First & Zero Cloud Leakage**: All indexes and metadata reside in a local SQLite database (`~/.contextmesh/context.db`). No raw context ever leaves your device.
-2. **Automated Secret & Credential Redaction**: Regular expression filters automatically redact OpenAI/Anthropic/GitHub API keys, bearer tokens, and passwords before indexing.
-3. **Model Context Protocol (MCP) Ready**: Built-in MCP endpoints (`query_personal_context`, `get_recent_developer_activity`) allow seamless connection to Claude Desktop and Cursor.
+2. **Automated Secret & Credential Redaction**: Regular expression filters automatically redact provider API keys, tokens, and passwords before indexing.
+3. **Model Context Protocol (MCP) Ready**: Built-in MCP endpoints (`query_personal_context`, `get_recent_developer_activity`) allow seamless connection to IDE extensions, local agents, and developer tooling.
 4. **Developer Activity Collectors**: Built-in collectors for Git repositories (active branch, recent commits, dirty working trees), terminal command outputs, and local Markdown documentation.
 5. **Interactive Web Console & CLI**: Search through past context, inspect redaction stats, and trigger manual indexers.
 

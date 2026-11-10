@@ -1,6 +1,6 @@
 """
 ContextMesh Model Context Protocol (MCP) Interface
-Exposes local personal context tools to AI assistants like Claude Desktop, Cursor, and IDE extensions.
+Exposes local developer context tools via Model Context Protocol (MCP) for IDE extensions and tooling.
 """
 
 from typing import Dict, Any, List, Optional
@@ -17,7 +17,7 @@ class ContextMeshMCPServer:
         self.collector = ContextCollector(store)
 
     def get_tool_definitions(self) -> List[Dict[str, Any]]:
-        """Returns MCP tool definitions formatted for AI agents."""
+        """Returns standard Model Context Protocol (MCP) tool schema definitions."""
         return [
             {
                 "name": "query_personal_context",
